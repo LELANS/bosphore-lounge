@@ -31,6 +31,7 @@
   --ez:     cubic-bezier(.25,.8,.25,1);
 }
 html { scroll-behavior: smooth }
+section[id], #contact-form { scroll-margin-top: 5.5rem }
 body {
   background: var(--noir);
   color: var(--blanc);
@@ -758,7 +759,7 @@ footer {
     <a href="#reviews">Avis</a>
     <a href="#horaires">Infos</a>
   </div>
-  <a class="btn-rose nav-cta" href="tel:+33753006401">Réservations</a>
+  <a class="btn-rose nav-cta" href="#reservation">Réserver</a>
   <button class="burger" type="button" aria-label="Ouvrir le menu" aria-controls="ov" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
@@ -770,7 +771,7 @@ footer {
   <a href="#galerie">Galerie</a>
   <a href="#reviews">Avis</a>
   <a href="#horaires">Infos</a>
-  <a class="btn-rose" href="tel:+33753006401" style="font-size:.75rem">Réservations</a>
+  <a class="btn-rose" href="#reservation" style="font-size:.75rem">Réserver</a>
 </div>
 
 <!-- ════ HERO ════ -->
@@ -788,7 +789,7 @@ footer {
       <div class="hero-eyebrow">Bordeaux Bacalan — Salon de thé &amp; Lounge</div>
       <p class="hero-sous">Chicha premium · Tapas · Thés d'Orient · Mocktails signatures.<br>Une ambiance feutrée entre l'Orient et les quais de Bordeaux.</p>
       <div class="hero-ctas">
-        <a class="btn-rose" href="tel:+33753006401">RÉSERVEZ UNE TABLE</a>
+        <a class="btn-rose" href="#reservation">RÉSERVER UNE TABLE</a>
         <a class="btn-contour" href="#carte">Découvrir la carte</a>
       </div>
     </div>
@@ -945,10 +946,10 @@ footer {
         <div class="resa-info-line"><span class="ico">📞</span><span><b>07 53 00 64 01</b></span></div>
         <div class="resa-info-line"><span class="ico">🕒</span><span>Ouvert <b>7j/7 · 14h — 2h</b> du matin</span></div>
       </div>
-      <a class="btn-rose rv d3" href="tel:+33753006401">Réservez ici</a>
+      <a class="btn-rose rv d3" href="#contact-form">Remplir la demande</a>
     </div>
     <div class="resa-form rv d2">
-      <h3>Nous contacter</h3>
+      <h3>Réserver une table</h3>
       <form id="contact-form">
         <div class="form-group">
           <label for="contact-name">Nom &amp; Prénom</label>
