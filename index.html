@@ -740,6 +740,9 @@ footer {
   .form-grid { grid-template-columns:1fr; gap:0 }
   .form-grid .form-group { margin-bottom:1.2rem }
   .form-group.form-wide { grid-column:auto }
+  #contact-form .form-grid, #contact-form .form-group { min-width:0; width:100% }
+  #contact-date { display:block; width:100%; min-width:0; max-width:100%; box-sizing:border-box }
+  #contact-date::-webkit-date-and-time-value { text-align:left; min-width:0 }
   .menu-showcase { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; margin-left:-2rem; margin-right:-2rem; padding:0 2rem 1rem; scrollbar-width:none }
   .menu-showcase::-webkit-scrollbar { display:none }
   .menu-feature { flex:0 0 78vw; min-height:390px; scroll-snap-align:center }
