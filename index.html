@@ -730,7 +730,7 @@ footer {
 @media (max-width: 600px) {
   .carte-grid { grid-template-columns: 1fr }
   .gi2,.gi3,.gi4 { grid-column: span 12 }
-  #hero .hero-eyebrow, #hero .hero-sous { display: none }
+  #hero .hero-eyebrow, #hero .hero-sous { display: none !important }
   .resa-form { padding: 1.8rem 1.2rem }
   .form-grid { grid-template-columns:1fr; gap:0 }
   .form-grid .form-group { margin-bottom:1.2rem }
@@ -1544,6 +1544,7 @@ document.querySelectorAll('.gi').forEach((el, i) => {
 (function() {
   const el = document.querySelector('.hero-sous');
   if (!el) return;
+  if (window.innerWidth <= 600) return;
   if (reduceMotion) { el.style.opacity = '1'; return; }
   // récupère le texte SANS le <br> HTML (innerText donne le vrai texte avec saut)
   const txt = el.innerText.trim();
