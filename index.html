@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Bosphore Lounge — Bar à chicha, Bordeaux Bacalan</title>
+<meta name="description" content="Le Bosphore Lounge, salon de thé et lounge à Bordeaux Bacalan. Chicha premium, tapas, thés et mocktails. Ouvert 7j/7 de 14h à 2h. 17 rue Roger Touton.">
+<meta name="theme-color" content="#0f0f0f">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="business.business">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Le Bosphore Lounge — Bordeaux Bacalan">
+<meta property="og:description" content="Chicha premium, tapas, thés d’Orient et mocktails dans un cadre chaleureux à Bordeaux Bacalan.">
+<meta property="og:image" content="assets/img/photo-6.jpg">
+<meta property="og:image:alt" content="Le Bosphore Lounge à Bordeaux">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230f0f0f%22/><text x=%2250%22 y=%2268%22 text-anchor=%22middle%22 font-size=%2255%22 font-family=%22sans-serif%22 font-weight=%22700%22 fill=%22%23c9a84c%22>B</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box }
+:root {
+  --noir:   #0f0f0f;
+  --noir2:  #1a1a1a;
+  --noir3:  #222;
+  --rose:   #c9a84c;
+  --rose2:  #f0d080;
+  --blanc:  #ffffff;
+  --gris:   rgba(255,255,255,.55);
+  --ez:     cubic-bezier(.25,.8,.25,1);
+}
+html { scroll-behavior: smooth }
+body {
+  background: var(--noir);
+  color: var(--blanc);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--rose); color: #fff }
+a { text-decoration: none; color: inherit }
+img { display: block; max-width: 100% }
+.skip-link { position:fixed; left:1rem; top:1rem; z-index:10001; padding:.75rem 1rem; background:var(--rose); color:var(--noir); font-weight:600; transform:translateY(-160%); transition:transform .2s }
+.skip-link:focus { transform:none }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
+:focus-visible { outline:3px solid var(--rose2); outline-offset:4px }
+
+/* ── UTILITAIRES ── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem }
+.titre-section {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.trait-rose {
+  display: block;
+  width: 80px; height: 3px;
+  background: linear-gradient(90deg, var(--rose), var(--rose2));
+  margin: 0 auto 3rem;
+  border-radius: 2px;
+}
+
+/* ── BOUTONS ── */
+.btn-rose {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--rose), var(--rose2));
+  color: #0f0f0f;
+  font-family: 'Orbitron', sans-serif;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .85rem 2rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: transform .3s var(--ez), box-shadow .3s var(--ez);
+  box-shadow: 0 4px 24px -4px rgba(201,168,76,.5);
+}
+.btn-rose:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 32px -4px rgba(201,168,76,.65);
+}
+.btn-contour {
+  display: inline-block;
+  background: transparent;
+  color: var(--rose);
+  font-family: 'Orbitron', sans-serif;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .82rem 2rem;
+  border-radius: 999px;
+  border: 2px solid var(--rose);
+  cursor: pointer;
+  transition: background .3s, color .3s, transform .3s;
+}
+.btn-contour:hover {
+  background: var(--rose);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ── REVEAL ── */
+.rv { opacity: 0; transform: translateY(30px); transition: opacity .7s var(--ez), transform .7s var(--ez) }
+.rv.in { opacity: 1; transform: none }
+.rv.d1 { transition-delay: .1s } .rv.d2 { transition-delay: .2s } .rv.d3 { transition-delay: .3s }
+@media (prefers-reduced-motion: reduce) { .rv { opacity:1; transform:none; transition:none } }
+
+/* ════════════════ NAV ════════════════ */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(15,15,15,.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(201,168,76,.12);
+  padding: 1rem 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background .4s;
+}
+.nav-logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: .95rem; font-weight: 700;
+  letter-spacing: .08em; color: var(--blanc);
+  display: flex; align-items: center; gap: .5rem;
+}
+.nav-logo span { color: var(--rose) }
+.nav-links { display: flex; gap: 2rem }
+.nav-links a {
+  font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gris); font-weight: 400;
+  transition: color .25s; position: relative; padding-bottom: 2px;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: var(--rose); transform: scaleX(0); transition: transform .3s var(--ez);
+}
+.nav-links a:hover { color: var(--blanc) }
+.nav-links a:hover::after { transform: scaleX(1) }
+.nav-cta { }
+
+/* burger mobile */
+.burger {
+  display: none; background: none; border: none; cursor: pointer;
+  flex-direction: column; gap: 5px; padding: 4px;
+}
+.burger span { display: block; width: 22px; height: 2px; background: var(--blanc); transition: transform .4s var(--ez) }
+body.open .burger span:nth-child(1) { transform: rotate(45deg) translate(5px,5px) }
+body.open .burger span:nth-child(2) { opacity: 0 }
+body.open .burger span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px) }
+
+/* overlay mobile */
+#ov {
+  position: fixed; inset: 0; z-index: 99;
+  background: rgba(15,15,15,.97);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+  opacity: 0; visibility: hidden; transition: opacity .4s, visibility .4s;
+}
+body.open #ov { opacity: 1; visibility: visible }
+#ov a {
+  font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 600;
+  letter-spacing: .08em; color: var(--gris); transition: color .25s;
+}
+#ov a:hover { color: var(--rose) }
+
+/* ════════════════ HERO ════════════════ */
+#hero {
+  position: relative; min-height: 100dvh;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.hero-bg img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+  animation: kb 22s ease both;
+}
+@keyframes kb { from { transform: scale(1.06) } to { transform: scale(1) } }
+/* voile premium très subtil — photo en premier plan */
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to top,  rgba(15,15,15,.92) 0%, rgba(15,15,15,.4) 35%, rgba(15,15,15,.05) 65%, transparent 100%),
+    linear-gradient(to right, rgba(15,15,15,.18) 0%, transparent 50%);
+}
+/* trait doré vertical décoratif */
+.hero-line {
+  position: absolute; left: 5vw; top: 0; bottom: 0; z-index: 2;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(201,168,76,.5) 40%, rgba(201,168,76,.5) 60%, transparent 100%);
+  animation: heroLineIn 1.4s 1.6s both;
+}
+@keyframes heroLineIn { from { transform: scaleY(0); transform-origin: bottom } to { transform: scaleY(1); transform-origin: bottom } }
+.hero-content {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 2;
+  padding: 0 3rem 4.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 3rem;
+  box-sizing: border-box;
+}
+.hero-left {
+  flex: 1;
+  min-width: 0;
+  max-width: 560px;
+}
+.hero-eyebrow {
+  display: flex; align-items: center; gap: .8rem;
+  font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--rose); margin-bottom: 1.4rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  opacity: 0; animation: fadeInUp .7s 1.8s forwards;
+}
+.hero-eyebrow::before {
+  content: '';
+  flex-shrink: 0;
+  display: inline-block; width: 28px; height: 1px;
+  background: var(--rose);
+}
+.hero-sous {
+  font-size: clamp(.95rem, 1.3vw, 1.1rem);
+  color: rgba(255,255,255,.82);
+  line-height: 1.78; max-width: 46ch;
+  margin-bottom: 2.2rem;
+  word-break: break-word;
+  opacity: 0; animation: fadeInUp .7s 2s forwards;
+}
+.hero-ctas {
+  display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
+  opacity: 0; animation: fadeInUp .7s 2.2s forwards;
+}
+.hero-right {
+  flex-shrink: 0;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 1.8rem;
+  opacity: 0; animation: fadeInUp .7s 2.4s forwards;
+}
+.hero-stat {
+  text-align: right;
+  border-right: 2px solid rgba(201,168,76,.5);
+  padding-right: 1.2rem;
+}
+.hero-stat .sval {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem; font-weight: 700;
+  color: var(--rose); line-height: 1;
+}
+.hero-stat .slbl {
+  font-size: .56rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gris); margin-top: .3rem;
+}
+/* ancien hero-meta caché */
+.hero-meta { display: none; }
+
+/* ════════════════ À PROPOS ════════════════ */
+#apropos {
+  padding: 7rem 0;
+  background: var(--noir2);
+}
+.apropos-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: center;
+}
+.apropos-txt .tag {
+  display: inline-block;
+  font-size: .65rem; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--rose); margin-bottom: 1.2rem;
+}
+.apropos-txt h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700; line-height: 1.25;
+  margin-bottom: .6rem;
+}
+.apropos-txt .trait { display: block; width: 60px; height: 3px; background: linear-gradient(90deg,var(--rose),var(--rose2)); border-radius:2px; margin: 1.2rem 0 1.8rem }
+.apropos-txt p {
+  color: var(--gris); font-size: .95rem; line-height: 1.82;
+  margin-bottom: 1rem; text-align: justify;
+}
+.apropos-txt p b { color: var(--blanc); font-weight: 500 }
+.apropos-stats {
+  display: flex; gap: 2rem; margin-top: 2.5rem; flex-wrap: wrap;
+}
+.stat-item .sn {
+  font-family: 'Orbitron', sans-serif; font-size: 2.2rem; font-weight: 700;
+  color: var(--rose); line-height: 1;
+}
+.stat-item .sl {
+  font-size: .62rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--gris); margin-top: .4rem;
+}
+.apropos-imgs {
+  display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto;
+  gap: .8rem;
+}
+.apropos-imgs .img-big { grid-column: 1; grid-row: 1 / 3 }
+.apropos-imgs .img-sm { grid-column: 2 }
+.apropos-imgs img {
+  width: 100%; height: 100%; object-fit: cover; border-radius: .5rem;
+  transition: transform 1.2s var(--ez);
+}
+.apropos-imgs img:hover { transform: scale(1.03) }
+.apropos-imgs .img-big img { height: 420px }
+.apropos-imgs .img-sm img { height: 200px }
+
+/* ════════════════ CARTE ════════════════ */
+#carte {
+  padding: 7rem 0;
+  background: var(--noir);
+}
+.carte-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1.4rem; margin-top: 1rem;
+}
+.carte-card {
+  background: var(--noir2);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: .75rem;
+  overflow: hidden;
+  transition: transform .4s var(--ez), border-color .4s, box-shadow .4s;
+}
+.carte-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201,168,76,.4);
+  box-shadow: 0 12px 40px -10px rgba(201,168,76,.25);
+}
+.carte-card-img {
+  width: 100%; height: 180px; overflow: hidden;
+}
+.carte-card-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 1s var(--ez);
+}
+.carte-card:hover .carte-card-img img { transform: scale(1.07) }
+.carte-card-body { padding: 1.4rem 1.2rem 1.6rem }
+.carte-card-num {
+  font-family: 'Orbitron', sans-serif; font-size: .6rem;
+  color: var(--rose); letter-spacing: .2em; margin-bottom: .7rem; display: block;
+}
+.carte-card-body h3 {
+  font-family: 'Orbitron', sans-serif; font-size: 1rem; font-weight: 700;
+  letter-spacing: .05em; margin-bottom: .7rem; text-transform: uppercase;
+}
+.carte-card-body p { color: var(--gris); font-size: .82rem; line-height: 1.7 }
+.carte-card-tags { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: 1rem }
+.carte-card-tags span {
+  font-size: .58rem; letter-spacing: .14em; text-transform: uppercase;
+  border: 1px solid rgba(201,168,76,.35); border-radius: 999px;
+  padding: .22rem .65rem; color: var(--rose2);
+}
+
+/* ════════════════ GALERIE ════════════════ */
+#galerie { padding: 7rem 0; background: var(--noir2) }
+.galerie-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 220px;
+  gap: .8rem; margin-top: 1rem;
+}
+.gi { overflow: hidden; border-radius: .5rem; position: relative }
+.gi img { width:100%; height:100%; object-fit:cover; transition: transform 1.4s var(--ez) }
+.gi:hover img { transform: scale(1.06) }
+.gi::after {
+  content:''; position:absolute; inset:0;
+  background: linear-gradient(to top, rgba(15,15,15,.6) 0%, transparent 50%);
+}
+.gi-label {
+  position: absolute; bottom: .8rem; left: .8rem; z-index:2;
+  font-size: .6rem; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.7);
+}
+.gi1 { grid-column: span 5; grid-row: span 2 }
+.gi2 { grid-column: span 4 }
+.gi3 { grid-column: span 3 }
+.gi4 { grid-column: span 7 }
+.gi5 { grid-column: span 5 }
+
+/* ════════════════ REVIEWS ════════════════ */
+#reviews {
+  padding: 7rem 0;
+  background: var(--noir3);
+}
+.reviews-slider {
+  position: relative; max-width: 780px; margin: 0 auto;
+  text-align: center; padding: 0 4rem;
+}
+.qs {
+  font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--rose);
+  display: block; margin-bottom: 1.5rem; opacity: .6;
+}
+.review-item { display: none }
+.review-item.active { display: block }
+.review-item blockquote {
+  font-size: 1.05rem; line-height: 1.75; color: var(--gris);
+  font-style: italic; margin-bottom: 1.8rem;
+}
+.review-item .who {
+  font-family: 'Orbitron', sans-serif; font-size: .7rem;
+  font-weight: 600; color: var(--blanc); letter-spacing: .12em;
+}
+.review-item .stars { color: var(--rose); font-size: .85rem; letter-spacing: .2em; margin-bottom: .5rem }
+.slider-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: none; border: 2px solid rgba(201,168,76,.4);
+  color: var(--rose); width: 2.6rem; height: 2.6rem;
+  border-radius: 50%; font-size: 1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .25s, border-color .25s;
+}
+.slider-btn:hover { background: var(--rose); border-color: var(--rose); color: #fff }
+.slider-prev { left: 0 } .slider-next { right: 0 }
+.slider-dots {
+  display: flex; justify-content: center; gap: .5rem; margin-top: 2rem;
+}
+.slider-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(201,168,76,.3); border: none; cursor: pointer;
+  transition: background .25s, transform .25s;
+}
+.slider-dot.active { background: var(--rose); transform: scale(1.3) }
+.badge-google {
+  display: inline-flex; align-items: center; gap: .8rem;
+  border: 1px solid rgba(201,168,76,.25); border-radius: 999px;
+  padding: .65rem 1.4rem; margin-top: 3rem;
+  font-size: .78rem; color: var(--gris);
+}
+.badge-google b { color: var(--rose2); font-weight: 600 }
+
+/* ════════════════ RÉSERVATION ════════════════ */
+#reservation {
+  position: relative; overflow: hidden;
+}
+.resa-bg { position: absolute; inset: 0; z-index: 0 }
+.resa-bg img { width:100%; height:100%; object-fit:cover }
+.resa-bg::after {
+  content:''; position:absolute; inset:0;
+  background:
+    linear-gradient(to right, rgba(15,15,15,.96) 0%, rgba(15,15,15,.85) 45%, rgba(15,15,15,.75) 100%),
+    radial-gradient(ellipse 60% 80% at 70% 50%, rgba(201,168,76,.2) 0%, transparent 60%);
+}
+.resa-inner {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: center;
+  padding: 7rem 2rem;
+  max-width: 1200px; margin: 0 auto;
+}
+.resa-txt .tag {
+  font-size: .65rem; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--rose); display: block; margin-bottom: 1.2rem;
+}
+.resa-txt h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  font-weight: 700; line-height: 1.2; margin-bottom: .6rem;
+}
+.resa-txt .trait { display:block; width:60px; height:3px; background:linear-gradient(90deg,var(--rose),var(--rose2)); border-radius:2px; margin:1.2rem 0 1.8rem }
+.resa-txt p { color: var(--gris); font-size: .95rem; line-height: 1.8; margin-bottom: 2rem }
+.resa-infos { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.2rem }
+.resa-info-line {
+  display: flex; align-items: center; gap: 1rem;
+  color: var(--gris); font-size: .9rem;
+}
+.resa-info-line .ico {
+  width: 2.2rem; height: 2.2rem; border-radius: 50%;
+  background: rgba(201,168,76,.15); border: 1px solid rgba(201,168,76,.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0; color: var(--rose);
+}
+.resa-info-line b { color: var(--blanc); font-weight: 500 }
+.resa-form {
+  background: rgba(26,26,26,.85);
+  border: 1px solid rgba(201,168,76,.2);
+  border-radius: 1rem; padding: 2.5rem;
+  backdrop-filter: blur(10px);
+}
+.resa-form h3 {
+  font-family: 'Orbitron', sans-serif; font-size: 1rem; font-weight: 700;
+  letter-spacing: .06em; margin-bottom: 1.8rem; text-align: center;
+  color: var(--blanc);
+}
+.form-group { margin-bottom: 1.2rem }
+.form-group label {
+  display: block; font-size: .7rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--gris); margin-bottom: .5rem;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: .5rem;
+  padding: .85rem 1rem;
+  color: var(--blanc); font-size: .9rem; font-family: 'Inter', sans-serif;
+  transition: border-color .25s;
+  resize: none;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none; border-color: var(--rose);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: rgba(255,255,255,.25) }
+.form-group textarea { height: 120px }
+.form-submit {
+  width: 100%; margin-top: .5rem;
+  background: linear-gradient(90deg, var(--rose), var(--rose2));
+  color: #fff; border: none; cursor: pointer;
+  font-family: 'Orbitron', sans-serif; font-size: .75rem;
+  font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  padding: 1rem; border-radius: 999px;
+  transition: transform .25s, box-shadow .25s;
+  box-shadow: 0 4px 24px -4px rgba(201,168,76,.5);
+}
+.form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 32px -4px rgba(201,168,76,.65) }
+
+/* ════════════════ HORAIRES ════════════════ */
+#horaires {
+  padding: 6rem 0;
+  background: var(--noir);
+  border-top: 1px solid rgba(201,168,76,.1);
+}
+.horaires-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: start;
+}
+.heure-table { margin-top: 1rem }
+.heure-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,.07);
+  font-size: .9rem; color: var(--gris);
+}
+.heure-row b { color: var(--blanc); font-weight: 400 }
+.heure-row .h { color: var(--rose2); font-family: 'Orbitron', sans-serif; font-size: .8rem; letter-spacing: .06em }
+.adresse-bloc { margin-top: 1rem }
+.adresse-bloc p { color: var(--gris); font-size: .95rem; line-height: 1.8; margin-bottom: 1.5rem }
+.adresse-bloc .adr {
+  font-family: 'Orbitron', sans-serif; font-size: 1rem;
+  color: var(--blanc); margin-bottom: 2rem; line-height: 1.6;
+}
+.adresse-bloc .adr span { color: var(--rose) }
+.btn-row { display: flex; flex-direction: column; gap: .9rem; align-items: flex-start }
+
+/* ════════════════ FOOTER ════════════════ */
+footer {
+  background: var(--noir2);
+  border-top: 1px solid rgba(201,168,76,.15);
+  padding: 3rem 2rem;
+}
+.footer-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center; gap: 1.4rem;
+  text-align: center;
+}
+.footer-logo {
+  font-family: 'Orbitron', sans-serif; font-size: 1.1rem;
+  font-weight: 700; letter-spacing: .1em; color: var(--blanc);
+}
+.footer-logo span { color: var(--rose) }
+.footer-links { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center }
+.footer-links a {
+  font-size: .7rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--gris); transition: color .25s;
+}
+.footer-links a:hover { color: var(--rose) }
+.footer-copy { font-size: .65rem; letter-spacing: .12em; color: rgba(255,255,255,.25) }
+
+/* ════════════════ ANIMATIONS ════════════════ */
+
+/* Canvas particules */
+#particles {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+}
+
+/* Glow pulse sur le trait doré hero */
+@keyframes glowPulse {
+  0%,100% { opacity: .5 }
+  50%      { opacity: 1 }
+}
+.hero-line { animation: heroLineIn 1.4s 1.6s both, glowPulse 3s 3s ease-in-out infinite }
+
+/* Trait rose animé */
+.trait-rose, .trait { transform-origin: left; animation: none }
+.trait-rose.in, .trait.in {
+  animation: traitSlide .8s cubic-bezier(.22,1,.36,1) forwards;
+}
+@keyframes traitSlide { from { width:0 } to { width:80px } }
+
+/* Reveal amélioré */
+.rv { opacity:0; transform:translateY(36px) scale(.98); filter: blur(4px);
+  transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1), filter .75s }
+.rv.in { opacity:1; transform:none; filter:blur(0) }
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.22s}.rv.d3{transition-delay:.36s}
+
+/* Reveal depuis la gauche */
+.rv-left { opacity:0; transform:translateX(-40px);
+  transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1) }
+.rv-left.in { opacity:1; transform:none }
+
+/* Reveal depuis la droite */
+.rv-right { opacity:0; transform:translateX(40px);
+  transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1) }
+.rv-right.in { opacity:1; transform:none }
+
+/* Counter chiffres */
+.sn { transition: color .3s }
+.stat-item:hover .sn { color: var(--rose2) }
+
+/* Shimmer sur les cards */
+.carte-card::before {
+  content: '';
+  position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+  background: linear-gradient(105deg, transparent 40%, rgba(201,168,76,.06) 50%, transparent 60%);
+  transition: left .6s ease;
+  pointer-events: none;
+}
+.carte-card { position: relative; overflow: hidden }
+.carte-card:hover::before { left: 150% }
+
+/* Glow border sur les cards */
+.carte-card::after {
+  content: '';
+  position: absolute; inset: 0; border-radius: .75rem; opacity: 0;
+  box-shadow: inset 0 0 0 1px var(--rose);
+  transition: opacity .4s;
+  pointer-events: none;
+}
+.carte-card:hover::after { opacity: .5 }
+
+/* Scroll indicator dans le hero */
+.scroll-hint {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  z-index: 3; display: flex; flex-direction: column; align-items: center; gap: .5rem;
+  color: rgba(255,255,255,.35); font-size: .6rem; letter-spacing: .2em; text-transform: uppercase;
+  animation: scrollHintIn 1s 2s both;
+}
+@keyframes fadeInUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+@keyframes scrollHintIn { from{opacity:0;transform:translateX(-50%) translateY(10px)} to{opacity:1;transform:translateX(-50%) translateY(0)} }
+.scroll-hint .arrow {
+  width: 1.4rem; height: 1.4rem; border-right: 1px solid rgba(201,168,76,.5);
+  border-bottom: 1px solid rgba(201,168,76,.5);
+  transform: rotate(45deg);
+  animation: arrowBounce 1.6s ease-in-out infinite;
+}
+@keyframes arrowBounce { 0%,100%{transform:rotate(45deg) translateY(0)} 50%{transform:rotate(45deg) translateY(5px)} }
+
+/* Parallaxe hero */
+.hero-bg img { will-change: transform }
+
+/* Image hover zoom doux */
+.apropos-imgs img, .gi img { will-change: transform }
+
+/* Badge Google pulse */
+.badge-google { animation: badgePulse 4s ease-in-out infinite }
+@keyframes badgePulse { 0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.2)} 50%{box-shadow:0 0 0 8px rgba(201,168,76,0)} }
+
+/* Form focus glow */
+.form-group input:focus, .form-group textarea:focus {
+  box-shadow: 0 0 0 3px rgba(201,168,76,.15);
+}
+
+/* Bouton rose shimmer */
+.btn-rose { position: relative; overflow: hidden }
+.btn-rose::before {
+  content:''; position:absolute; top:0; left:-100%; width:60%; height:100%;
+  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,.2) 50%, transparent 70%);
+  transition: left .5s ease;
+}
+.btn-rose:hover::before { left: 150% }
+
+/* ════════════════ RESPONSIVE ════════════════ */
+@media (max-width: 1100px) {
+  .nav-links, .nav-cta { display: none }
+  .burger { display: flex }
+  .apropos-inner, .resa-inner, .horaires-inner { grid-template-columns: 1fr; gap: 3rem }
+  .apropos-imgs .img-big img { height: 280px }
+  .carte-grid { grid-template-columns: repeat(2, 1fr) }
+  .hero-content { padding: 0 1.5rem 3rem 1.5rem; flex-direction: column; gap: 1.5rem; }
+  .hero-left { max-width: 100%; }
+  .hero-right { flex-direction: row; align-items: flex-end; justify-content: flex-start; width: 100%; gap: 2rem; }
+  .hero-stat { text-align: left; border-right: none; border-left: 2px solid rgba(201,168,76,.5); padding-right: 0; padding-left: 1rem; }
+  .hero-line { display: none }
+  .galerie-grid { grid-auto-rows: 170px }
+  .gi1 { grid-column: span 12; grid-row: span 2 }
+  .gi2, .gi3 { grid-column: span 6 }
+  .gi4, .gi5 { grid-column: span 6 }
+}
+@media (max-width: 600px) {
+  .carte-grid { grid-template-columns: 1fr }
+  .gi2,.gi3,.gi4,.gi5 { grid-column: span 12 }
+  .hero-sous { font-size: .9rem }
+  .resa-form { padding: 1.8rem 1.2rem }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto }
+  *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important }
+  .rv, .rv-left, .rv-right { opacity:1; transform:none; filter:none }
+  #particles { display:none }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CafeOrCoffeeShop",
+  "name":"Le Bosphore Lounge",
+  "description":"Salon de thé et lounge à Bordeaux Bacalan proposant chichas, tapas, thés et mocktails.",
+  "telephone":"+33753006401",
+  "address":{"@type":"PostalAddress","streetAddress":"17 rue Roger Touton","postalCode":"33300","addressLocality":"Bordeaux","addressCountry":"FR"},
+  "openingHours":"Mo-Su 14:00-02:00",
+  "servesCuisine":["Tapas","Cuisine orientale","Boissons sans alcool"]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<!-- ════ NAV ════ -->
+<nav id="nav">
+  <a class="nav-logo" href="#top">LE BOSPHORE <span>LOUNGE</span></a>
+  <div class="nav-links">
+    <a href="#apropos">Le lieu</a>
+    <a href="#carte">La carte</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#reviews">Avis</a>
+    <a href="#horaires">Infos</a>
+  </div>
+  <a class="btn-rose nav-cta" href="tel:+33753006401">Réservations</a>
+  <button class="burger" type="button" aria-label="Ouvrir le menu" aria-controls="ov" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div id="ov" aria-hidden="true">
+  <a href="#apropos">Le lieu</a>
+  <a href="#carte">La carte</a>
+  <a href="#galerie">Galerie</a>
+  <a href="#reviews">Avis</a>
+  <a href="#horaires">Infos</a>
+  <a class="btn-rose" href="tel:+33753006401" style="font-size:.75rem">Réservations</a>
+</div>
+
+<!-- ════ HERO ════ -->
+<main id="contenu">
+<span id="top" aria-hidden="true"></span>
+<section id="hero">
+  <canvas id="particles"></canvas>
+  <div class="hero-bg">
+    <img src="assets/img/photo-6.jpg" alt="Le Bosphore Lounge, Bordeaux" id="heroImg" width="1920" height="2880" fetchpriority="high" decoding="async">
+  </div>
+  <div class="hero-line"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <h1 class="sr-only">Le Bosphore Lounge, salon de thé à Bordeaux Bacalan</h1>
+      <div class="hero-eyebrow">Bordeaux Bacalan — Salon de thé &amp; Lounge</div>
+      <p class="hero-sous">Chicha premium · Tapas · Thés d'Orient · Mocktails signatures.<br>Une ambiance feutrée entre l'Orient et les quais de Bordeaux.</p>
+      <div class="hero-ctas">
+        <a class="btn-rose" href="tel:+33753006401">RÉSERVEZ UNE TABLE</a>
+        <a class="btn-contour" href="#carte">Découvrir la carte</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stat">
+        <div class="sval">Bacalan</div>
+        <div class="slbl">Bordeaux</div>
+      </div>
+      <div class="hero-stat">
+        <div class="sval">7j/7</div>
+        <div class="slbl">14h — 2h</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="arrow"></div>Scroll</div>
+</section>
+
+<!-- ════ À PROPOS ════ -->
+<section id="apropos">
+  <div class="container">
+    <div class="apropos-inner">
+      <div class="apropos-txt">
+        <span class="tag rv">— Le Bosphore Lounge</span>
+        <h2 class="rv d1">Un lieu convivial pour vos moments de détente</h2>
+        <span class="trait rv d1"></span>
+        <p class="rv d2">Notre lounge vous accueille dans un cadre chaleureux et moderne à Bordeaux Bacalan. <b>Mur d'eau, velours et lumières tamisées</b> — le Bosphore Lounge a été pensé comme une traversée entre l'Orient et les quais de Bordeaux.</p>
+        <p class="rv d2">Chicha préparée avec précision par notre équipe, service attentionné, salons privatisables pour vos soirées entre amis ou vos événements. <b>On s'y pose pour une heure, on y reste jusqu'à la fermeture.</b></p>
+        <div class="apropos-stats rv d3">
+          <div class="stat-item"><div class="sn">Bacalan</div><div class="sl">Bordeaux</div></div>
+          <div class="stat-item"><div class="sn">7j/7</div><div class="sl">14h — 2h</div></div>
+          <div class="stat-item"><div class="sn">12h</div><div class="sl">service continu</div></div>
+        </div>
+      </div>
+      <div class="apropos-imgs rv d2">
+        <div class="img-big"><img src="assets/img/photo-5.jpg" alt="Salle du Bosphore Lounge" width="1920" height="3412" loading="lazy" decoding="async"></div>
+        <div class="img-sm"><img src="assets/img/photo-2.jpg" alt="Détail lounge" width="1920" height="2880" loading="lazy" decoding="async"></div>
+        <div class="img-sm"><img src="assets/img/photo-3.jpg" alt="Chicha premium" width="1920" height="3412" loading="lazy" decoding="async"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CARTE ════ -->
+<section id="carte">
+  <div class="container">
+    <h2 class="titre-section rv">Notre carte</h2>
+    <span class="trait-rose rv d1"></span>
+    <p class="rv d1" style="text-align:center;color:var(--gris);max-width:60ch;margin:0 auto 3rem;line-height:1.75;">Explorez notre sélection de chichas d'exception, tapas généreux, thés d'Orient et mocktails signatures créés pour parfaire votre expérience.</p>
+    <div class="carte-grid">
+      <div class="carte-card rv">
+        <div class="carte-card-img"><img src="assets/img/photo-3.jpg" alt="Chicha signature" width="1920" height="3412" loading="lazy" decoding="async"></div>
+        <div class="carte-card-body">
+          <span class="carte-card-num">— 01</span>
+          <h3>Chicha Signature</h3>
+          <p>Matériel premium, tabacs sélectionnés, montages soignés et suivi par notre chicha man tout au long de votre soirée.</p>
+          <div class="carte-card-tags"><span>Fruits frais</span><span>Glace</span><span>Premium</span></div>
+        </div>
+      </div>
+      <div class="carte-card rv d1">
+        <div class="carte-card-img"><img src="assets/img/photo-4.jpg" alt="Tapas mezzés" width="1920" height="2880" loading="lazy" decoding="async"></div>
+        <div class="carte-card-body">
+          <span class="carte-card-num">— 02</span>
+          <h3>Tapas &amp; Mezzés</h3>
+          <p>Planches à partager, mezzés d'inspiration orientale et incontournables maison, servis jusqu'à tard dans la nuit.</p>
+          <div class="carte-card-tags"><span>À partager</span><span>Service tardif</span></div>
+        </div>
+      </div>
+      <div class="carte-card rv d2">
+        <div class="carte-card-img"><img src="assets/img/photo-2.jpg" alt="Thés mocktails" width="1920" height="2880" loading="lazy" decoding="async"></div>
+        <div class="carte-card-body">
+          <span class="carte-card-num">— 03</span>
+          <h3>Thés &amp; Mocktails</h3>
+          <p>Thés d'Orient servis à la turque, jus frais et mocktails signatures créés pour accompagner votre chicha.</p>
+          <div class="carte-card-tags"><span>Thé turc</span><span>Sans alcool</span><span>Maison</span></div>
+        </div>
+      </div>
+      <div class="carte-card rv d3">
+        <div class="carte-card-img"><img src="assets/img/photo-1.jpg" alt="Douceurs orientales" width="1173" height="2292" loading="lazy" decoding="async"></div>
+        <div class="carte-card-body">
+          <span class="carte-card-num">— 04</span>
+          <h3>Douceurs</h3>
+          <p>Pâtisseries orientales et desserts gourmands, la touche sucrée qui clôt la traversée du Bosphore.</p>
+          <div class="carte-card-tags"><span>Pâtisseries</span><span>Gourmandises</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ GALERIE ════ -->
+<section id="galerie">
+  <div class="container">
+    <h2 class="titre-section rv">Notre ambiance</h2>
+    <span class="trait-rose rv d1"></span>
+    <div class="galerie-grid">
+      <div class="gi gi1 rv"><img src="assets/img/photo-5.jpg" alt="Grande salle" width="1920" height="3412" loading="lazy" decoding="async"><span class="gi-label">La grande salle</span></div>
+      <div class="gi gi2 rv d1"><img src="assets/img/photo-6.jpg" alt="Enseigne" width="1920" height="2880" loading="lazy" decoding="async"><span class="gi-label">L'enseigne</span></div>
+      <div class="gi gi3 rv d2"><img src="assets/img/photo-3.jpg" alt="Chicha" width="1920" height="3412" loading="lazy" decoding="async"><span class="gi-label">Chicha</span></div>
+      <div class="gi gi4 rv d1"><img src="assets/img/photo-2.jpg" alt="Comptoir" width="1920" height="2880" loading="lazy" decoding="async"><span class="gi-label">Le comptoir</span></div>
+      <div class="gi gi5 rv d2"><img src="assets/img/photo-1.jpg" alt="Mur d'eau" width="1173" height="2292" loading="lazy" decoding="async"><span class="gi-label">Mur d'eau</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ REVIEWS ════ -->
+<section id="reviews">
+  <div class="container">
+    <h2 class="titre-section rv">Nos clients parlent de nous</h2>
+    <span class="trait-rose rv d1"></span>
+    <p class="rv d1" style="text-align:center;color:var(--gris);max-width:55ch;margin:0 auto 3.5rem;line-height:1.75;">Nous sommes fiers de recevoir chaque jour vos retours positifs. Découvrez pourquoi notre lounge est l'une des adresses préférées à Bordeaux !</p>
+
+    <div class="reviews-slider rv d2">
+      <span class="qs">"</span>
+      <div class="review-item active">
+        <div class="stars">★★★★★</div>
+        <blockquote>« Nouvelle chicha sur Bordeaux découverte par hasard… c'est l'une des meilleures de la ville. Cadre super, accueil au top, je reviendrai sans hésiter ! »</blockquote>
+        <div class="who">Ana M.</div>
+      </div>
+      <div class="review-item">
+        <div class="stars">★★★★★</div>
+        <blockquote>« Excellents tapas, accueil très chaleureux. Le patron est adorable et l'équipe est fantastique. Le cadre est magnifique. Je recommande vivement. »</blockquote>
+        <div class="who">China L.</div>
+      </div>
+      <div class="review-item">
+        <div class="stars">★★★★★</div>
+        <blockquote>« Endroit chill pour manger et fumer une chicha, le chicha man Zak est aux petits soins, service au top. Accueil chaleureux, on reviendra ! »</blockquote>
+        <div class="who">Desko R.</div>
+      </div>
+      <button class="slider-btn slider-prev" aria-label="Précédent">&#8592;</button>
+      <button class="slider-btn slider-next" aria-label="Suivant">&#8594;</button>
+    </div>
+    <div class="slider-dots rv d3">
+        <button class="slider-dot active" type="button" aria-label="Afficher l’avis 1" aria-current="true"></button>
+        <button class="slider-dot" type="button" aria-label="Afficher l’avis 2"></button>
+        <button class="slider-dot" type="button" aria-label="Afficher l’avis 3"></button>
+    </div>
+    <div style="text-align:center">
+      <div class="badge-google rv d3">Des retours partagés par nos clients</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ RÉSERVATION ════ -->
+<section id="reservation">
+  <div class="resa-bg"><img src="assets/img/photo-5.jpg" alt="" width="1920" height="3412" loading="lazy" decoding="async"></div>
+  <div class="resa-inner">
+    <div class="resa-txt">
+      <span class="tag rv">— Réservez votre table</span>
+      <h2 class="rv d1">Venez déguster nos chichas &amp; saveurs d'Orient</h2>
+      <span class="trait rv d1"></span>
+      <p class="rv d2">Chez Le Bosphore Lounge, profitez de votre soirée avec nos chichas premium et notre cuisine orientale. Réservez votre table pour tous vos afterworks, fêtes et soirées entre amis.</p>
+      <div class="resa-infos rv d2">
+        <div class="resa-info-line"><span class="ico">📍</span><span><b>17 rue Roger Touton</b><br>33300 Bordeaux — Bacalan</span></div>
+        <div class="resa-info-line"><span class="ico">📞</span><span><b>07 53 00 64 01</b></span></div>
+        <div class="resa-info-line"><span class="ico">🕒</span><span>Ouvert <b>7j/7 · 14h — 2h</b> du matin</span></div>
+      </div>
+      <a class="btn-rose rv d3" href="tel:+33753006401">Réservez ici</a>
+    </div>
+    <div class="resa-form rv d2">
+      <h3>Nous contacter</h3>
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="contact-name">Nom &amp; Prénom</label>
+          <input id="contact-name" name="name" type="text" placeholder="Votre nom" autocomplete="name" required>
+        </div>
+        <div class="form-group">
+          <label for="contact-date">Date souhaitée</label>
+          <input id="contact-date" name="date" type="date" required>
+        </div>
+        <div class="form-group">
+          <label for="contact-guests">Nombre de personnes</label>
+          <input id="contact-guests" name="guests" type="number" min="1" max="30" inputmode="numeric" placeholder="Ex. 4" required>
+        </div>
+        <div class="form-group">
+          <label for="contact-message">Message <span>(facultatif)</span></label>
+          <textarea id="contact-message" name="message" placeholder="Heure souhaitée, occasion, demande particulière…"></textarea>
+        </div>
+        <button class="form-submit" type="submit">Préparer la demande par SMS</button>
+        <p id="form-status" role="status" aria-live="polite" style="margin-top:1rem;color:var(--gris);font-size:.78rem;line-height:1.6">Votre application SMS s’ouvrira avec la demande préremplie. La réservation reste à confirmer par l’établissement.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ════ HORAIRES ════ -->
+<section id="horaires">
+  <div class="container">
+    <div class="horaires-inner">
+      <div>
+        <span class="tag rv" style="font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--rose);display:block;margin-bottom:1.2rem;">— Horaires d'ouverture</span>
+        <h2 class="rv d1" style="font-family:'Orbitron',sans-serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;line-height:1.2;margin-bottom:.6rem;">On vous garde <span style="color:var(--rose)">une table.</span></h2>
+        <span class="trait rv d1" style="display:block;width:60px;height:3px;background:linear-gradient(90deg,var(--rose),var(--rose2));border-radius:2px;margin:1.2rem 0 .5rem"></span>
+        <div class="heure-table rv d2">
+          <div class="heure-row"><b>Lundi — Jeudi</b><span class="h">14H — 2H</span></div>
+          <div class="heure-row"><b>Vendredi</b><span class="h">14H — 2H</span></div>
+          <div class="heure-row"><b>Samedi</b><span class="h">14H — 2H</span></div>
+          <div class="heure-row"><b>Dimanche</b><span class="h">14H — 2H</span></div>
+        </div>
+        <p class="rv d3" style="margin-top:1.5rem;color:var(--gris);font-size:.82rem;line-height:1.7;">Ouvert tous les jours y compris les jours fériés.<br>Groupes &amp; privatisations : appelez-nous.</p>
+      </div>
+      <div class="adresse-bloc">
+        <span class="tag rv" style="font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--rose);display:block;margin-bottom:1.2rem;">— Nous trouver</span>
+        <div class="adr rv d1">17 rue Roger Touton<br><span>33300 Bordeaux — Bacalan</span></div>
+        <div class="btn-row rv d2">
+          <a class="btn-rose" href="tel:+33753006401">07 53 00 64 01</a>
+          <a class="btn-contour" href="https://maps.google.com/?q=Le+Bosphore+Lounge,+17+Rue+Roger+Touton,+33300+Bordeaux" target="_blank" rel="noopener">Itinéraire Google Maps ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">LE BOSPHORE <span>LOUNGE</span></div>
+    <div class="footer-links">
+      <a href="#apropos">Le lieu</a>
+      <a href="#carte">La carte</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#reviews">Avis</a>
+      <a href="#horaires">Infos</a>
+      <a href="tel:+33753006401">07 53 00 64 01</a>
+    </div>
+    <p class="footer-copy">© <span id="current-year">2026</span> Le Bosphore Lounge — Bordeaux · Ouvert 7j/7 · 14h — 2h</p>
+  </div>
+</footer>
+
+<script>
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* ══════════════════════════════════════════
+   PARTICULES PLEINE PAGE (fond fixe)
+══════════════════════════════════════════ */
+(function() {
+  if (reduceMotion || window.innerWidth < 768) return;
+  const cv = document.createElement('canvas');
+  cv.id = 'particles-global';
+  cv.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.55;';
+  document.body.prepend(cv);
+  const ctx = cv.getContext('2d');
+  let W, H;
+  function resize() { W = cv.width = innerWidth; H = cv.height = innerHeight; }
+  resize(); window.addEventListener('resize', resize);
+  const count = 120;
+  const pts = Array.from({length: count}, () => ({
+    x: Math.random() * innerWidth,
+    y: Math.random() * innerHeight,
+    r: .5 + Math.random() * 2.5,
+    vx: (Math.random() - .5) * .35,
+    vy: -.15 - Math.random() * .55,
+    alpha: .04 + Math.random() * .22,
+    decay: .0015 + Math.random() * .003,
+    life: Math.random()
+  }));
+  function reset(p) {
+    p.x = Math.random() * W;
+    p.y = H + 10;
+    p.r = .5 + Math.random() * 2.5;
+    p.vx = (Math.random() - .5) * .35;
+    p.vy = -.15 - Math.random() * .55;
+    p.alpha = .04 + Math.random() * .22;
+    p.life = 1;
+  }
+  (function loop() {
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p => {
+      p.x += p.vx; p.y += p.vy; p.life -= p.decay;
+      if (p.life <= 0 || p.y < -10) { reset(p); return; }
+      const a = p.alpha * p.life;
+      const g = ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*5);
+      g.addColorStop(0, `rgba(201,168,76,${a})`);
+      g.addColorStop(1, 'rgba(201,168,76,0)');
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r*5,0,Math.PI*2);
+      ctx.fillStyle = g; ctx.fill();
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r*.8,0,Math.PI*2);
+      ctx.fillStyle = `rgba(240,208,128,${a*.9})`; ctx.fill();
+    });
+    requestAnimationFrame(loop);
+  })();
+})();
+
+/* ══════════════════════════════════════════
+   PARTICULES HERO (canvas hero — effet dense)
+══════════════════════════════════════════ */
+(function() {
+  if (reduceMotion || window.innerWidth < 768) return;
+  const canvas = document.getElementById('particles');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function rand(a, b) { return a + Math.random() * (b - a) }
+
+  function createParticle() {
+    return {
+      x: rand(0, W),
+      y: rand(H * .3, H),
+      r: rand(1, 4),
+      vx: rand(-.4, .4),
+      vy: rand(-1.2, -.3),
+      alpha: rand(.05, .35),
+      decay: rand(.002, .006),
+      life: 1
+    };
+  }
+
+  for (let i = 0; i < 80; i++) {
+    const p = createParticle();
+    p.y = rand(0, H); // spread initiale
+    particles.push(p);
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach((p, i) => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.life -= p.decay;
+      if (p.life <= 0 || p.y < -10) {
+        particles[i] = createParticle();
+        return;
+      }
+      const a = p.alpha * p.life;
+      // glow rose
+      const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 6);
+      g.addColorStop(0, `rgba(201,168,76,${a})`);
+      g.addColorStop(.5, `rgba(240,208,128,${a * .4})`);
+      g.addColorStop(1, 'rgba(201,168,76,0)');
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r * 6, 0, Math.PI * 2);
+      ctx.fillStyle = g;
+      ctx.fill();
+      // point central
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(240,208,128,${a * .8})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ══════════════════════════════════════════
+   PARALLAXE HERO
+══════════════════════════════════════════ */
+const heroImg = document.getElementById('heroImg');
+if (!reduceMotion) window.addEventListener('scroll', () => {
+  if (!heroImg || window.scrollY > innerHeight) return;
+  heroImg.style.transform = `translateY(${window.scrollY * .3}px) scale(1.08)`;
+}, {passive:true});
+
+/* ══════════════════════════════════════════
+   REVEALS (scroll)
+══════════════════════════════════════════ */
+const io = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: .08, rootMargin: '0px 0px -4% 0px' });
+document.querySelectorAll('.rv, .rv-left, .rv-right').forEach(el => io.observe(el));
+
+/* ══════════════════════════════════════════
+   COMPTEURS ANIMÉS (stats)
+══════════════════════════════════════════ */
+function animCount(el, target, suffix, duration) {
+  const start = performance.now();
+  const isFloat = String(target).includes('.');
+  function step(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - p, 3); // ease-out cubic
+    const val = target * ease;
+    el.textContent = (isFloat ? val.toFixed(1) : Math.round(val)) + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+const statsObs = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (!e.isIntersecting) return;
+    statsObs.unobserve(e.target);
+    const items = e.target.querySelectorAll('.stat-item');
+    items.forEach((item, i) => {
+      const el = item.querySelector('.sn');
+      const raw = el.textContent.trim();
+      setTimeout(() => {
+        if (raw === '7j/7') { /* texte fixe */ }
+        else if (raw === '12h') animCount(el, 12, 'h', 1200);
+      }, i * 150);
+    });
+  });
+}, { threshold: .4 });
+document.querySelectorAll('.apropos-stats').forEach(el => statsObs.observe(el));
+
+/* ══════════════════════════════════════════
+   BURGER
+══════════════════════════════════════════ */
+const burger = document.querySelector('.burger');
+const mobileMenu = document.getElementById('ov');
+function setMenu(open) {
+  document.body.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', String(open));
+  burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+  mobileMenu.setAttribute('aria-hidden', String(!open));
+}
+burger.addEventListener('click', () => setMenu(!document.body.classList.contains('open')));
+mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false) });
+
+/* ══════════════════════════════════════════
+   SLIDER REVIEWS (avec transition fade)
+══════════════════════════════════════════ */
+let cur = 0;
+let sliding = false;
+const items = document.querySelectorAll('.review-item');
+const dots  = document.querySelectorAll('.slider-dot');
+
+// ajouter fade CSS dynamiquement
+items.forEach(it => { it.style.transition = 'opacity .45s ease, transform .45s ease' });
+
+function goTo(n) {
+  if (sliding || n === cur) return;
+  sliding = true;
+  items[cur].style.opacity = '0';
+  items[cur].style.transform = 'translateY(10px)';
+  dots[cur].classList.remove('active');
+  setTimeout(() => {
+    items[cur].classList.remove('active');
+    cur = (n + items.length) % items.length;
+    items[cur].classList.add('active');
+    items[cur].style.opacity = '0';
+    items[cur].style.transform = 'translateY(10px)';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        items[cur].style.opacity = '1';
+        items[cur].style.transform = 'none';
+      });
+    });
+    dots[cur].classList.add('active');
+    dots.forEach((dot, i) => dot.setAttribute('aria-current', i === cur ? 'true' : 'false'));
+    sliding = false;
+  }, 300);
+}
+document.querySelector('.slider-prev').addEventListener('click', () => goTo(cur - 1));
+document.querySelector('.slider-next').addEventListener('click', () => goTo(cur + 1));
+dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+let autoSlide = reduceMotion ? null : setInterval(() => goTo(cur + 1), 5500);
+// reset auto si interaction
+['.slider-prev', '.slider-next'].forEach(sel => {
+  document.querySelector(sel).addEventListener('click', () => { if (autoSlide) clearInterval(autoSlide) });
+});
+document.querySelector('.reviews-slider').addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') goTo(cur - 1);
+  if (e.key === 'ArrowRight') goTo(cur + 1);
+});
+
+/* ══════════════════════════════════════════
+   NAV scroll + active link
+══════════════════════════════════════════ */
+const nav = document.getElementById('nav');
+const sections = document.querySelectorAll('section[id], header[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  nav.style.background = window.scrollY > 60 ? 'rgba(15,15,15,.98)' : 'rgba(15,15,15,.92)';
+  // active link
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--rose)' : '';
+  });
+}, { passive: true });
+
+/* ══════════════════════════════════════════
+   CURSOR GLOW (effet souris rose)
+══════════════════════════════════════════ */
+const glow = document.createElement('div');
+glow.style.cssText = `
+  position:fixed;pointer-events:none;z-index:9998;
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,168,76,.06) 0%,transparent 70%);
+  transform:translate(-50%,-50%);
+  transition:opacity .3s;
+  opacity:0;
+`;
+if (!reduceMotion && matchMedia('(pointer:fine)').matches) document.body.appendChild(glow);
+document.addEventListener('mousemove', e => {
+  if (!glow.isConnected) return;
+  glow.style.left = e.clientX + 'px';
+  glow.style.top  = e.clientY + 'px';
+  glow.style.opacity = '1';
+});
+document.addEventListener('mouseleave', () => { glow.style.opacity = '0' });
+
+/* ══════════════════════════════════════════
+   CURSOR GLOW — mouvement fluide (lerp)
+══════════════════════════════════════════ */
+let mx = 0, my = 0, gx = 0, gy = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+(function lerpGlow() {
+  if (!glow.isConnected) return;
+  gx += (mx - gx) * .07; gy += (my - gy) * .07;
+  glow.style.left = gx + 'px'; glow.style.top = gy + 'px';
+  requestAnimationFrame(lerpGlow);
+})();
+
+/* ══════════════════════════════════════════
+   TEXT SCRAMBLE sur les titres de section
+══════════════════════════════════════════ */
+const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%';
+function scramble(el) {
+  const original = el.textContent;
+  let frame = 0, total = 28;
+  const id = setInterval(() => {
+    el.textContent = original.split('').map((ch, i) => {
+      if (ch === ' ') return ' ';
+      if (frame / total > i / original.length) return ch;
+      return CHARS[Math.floor(Math.random() * CHARS.length)];
+    }).join('');
+    frame++;
+    if (frame > total) { el.textContent = original; clearInterval(id); }
+  }, 35);
+}
+const scrambleObs = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (!e.isIntersecting) return;
+    scrambleObs.unobserve(e.target);
+    setTimeout(() => scramble(e.target), 150);
+  });
+}, { threshold: .6 });
+document.querySelectorAll('.titre-section').forEach(el => scrambleObs.observe(el));
+
+/* ══════════════════════════════════════════
+   3D TILT sur les cartes menu
+══════════════════════════════════════════ */
+document.querySelectorAll('.carte-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    if (reduceMotion) return;
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width  - .5;
+    const y = (e.clientY - r.top)  / r.height - .5;
+    card.style.transform = `perspective(700px) rotateY(${x*14}deg) rotateX(${-y*10}deg) translateY(-8px) scale(1.03)`;
+    card.style.boxShadow = `${-x*24}px ${y*24}px 50px rgba(201,168,76,.3)`;
+    card.style.transition = 'box-shadow .1s';
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.boxShadow = '';
+    card.style.transition = 'transform .5s var(--ez), box-shadow .5s';
+  });
+});
+
+/* ══════════════════════════════════════════
+   MAGNETIC BUTTONS
+══════════════════════════════════════════ */
+document.querySelectorAll('.btn-rose, .btn-contour').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    if (reduceMotion) return;
+    const r = btn.getBoundingClientRect();
+    const x = (e.clientX - r.left - r.width  / 2) * .28;
+    const y = (e.clientY - r.top  - r.height / 2) * .28;
+    btn.style.transform = `translate(${x}px,${y}px) scale(1.06)`;
+    btn.style.transition = 'transform .1s';
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = '';
+    btn.style.transition = 'transform .4s var(--ez)';
+  });
+});
+
+/* ══════════════════════════════════════════
+   RIPPLE sur tous les boutons au clic
+══════════════════════════════════════════ */
+document.querySelectorAll('.btn-rose, .btn-contour, .form-submit').forEach(btn => {
+  btn.style.position = 'relative';
+  btn.style.overflow = 'hidden';
+  btn.addEventListener('click', e => {
+    const r = btn.getBoundingClientRect();
+    const size = Math.max(r.width, r.height) * 2.2;
+    const rip = document.createElement('span');
+    rip.style.cssText = `
+      position:absolute;border-radius:50%;pointer-events:none;
+      width:${size}px;height:${size}px;
+      left:${e.clientX - r.left - size/2}px;top:${e.clientY - r.top - size/2}px;
+      background:rgba(255,255,255,.22);
+      transform:scale(0);animation:_ripple .65s linear forwards;z-index:10;
+    `;
+    btn.appendChild(rip);
+    setTimeout(() => rip.remove(), 700);
+  });
+});
+
+/* ══════════════════════════════════════════
+   PARTICULES BURST au clic sur les CTA
+══════════════════════════════════════════ */
+document.querySelectorAll('.btn-rose').forEach(btn => {
+  btn.addEventListener('click', e => {
+    for (let i = 0; i < 14; i++) {
+      const p = document.createElement('span');
+      const angle = (i / 14) * Math.PI * 2;
+      const dist  = 45 + Math.random() * 45;
+      p.style.cssText = `
+        position:fixed;pointer-events:none;z-index:9999;border-radius:50%;
+        width:5px;height:5px;
+        background:${Math.random()>.5 ? '#c9a84c' : '#f0d080'};
+
+        left:${e.clientX}px;top:${e.clientY}px;
+        transition:transform .65s ease-out,opacity .65s ease-out;opacity:1;
+      `;
+      document.body.appendChild(p);
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        p.style.transform = `translate(${Math.cos(angle)*dist}px,${Math.sin(angle)*dist - 20}px) scale(0)`;
+        p.style.opacity = '0';
+      }));
+      setTimeout(() => p.remove(), 700);
+    }
+  });
+});
+
+/* ══════════════════════════════════════════
+   IMAGES GALERIE — flottement doux
+══════════════════════════════════════════ */
+document.querySelectorAll('.gi').forEach((el, i) => {
+  if (reduceMotion || window.innerWidth < 768) return;
+  const phase = i * 1.1, speed = .006 + i * .0008;
+  let t = phase;
+  el.style.willChange = 'transform';
+  (function floatImg() {
+    t += speed;
+    el.style.transform = `translateY(${Math.sin(t) * 5}px)`;
+    requestAnimationFrame(floatImg);
+  })();
+});
+
+/* ══════════════════════════════════════════
+   FOND LIGNES ANIMÉES section reviews
+══════════════════════════════════════════ */
+(function() {
+  if (reduceMotion || window.innerWidth < 768) return;
+  const sec = document.getElementById('reviews');
+  if (!sec) return;
+  const cv = document.createElement('canvas');
+  cv.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;opacity:.05;pointer-events:none;z-index:0;';
+  if (getComputedStyle(sec).position === 'static') sec.style.position = 'relative';
+  sec.prepend(cv);
+  const ctx2 = cv.getContext('2d');
+  let W2, H2, t2 = 0;
+  const resize2 = () => { W2 = cv.width = cv.offsetWidth; H2 = cv.height = cv.offsetHeight; };
+  resize2(); window.addEventListener('resize', resize2);
+  (function drawLines() {
+    t2 += .004;
+    ctx2.clearRect(0, 0, W2, H2);
+    ctx2.strokeStyle = '#c9a84c'; ctx2.lineWidth = 1;
+    for (let i = 0; i < 7; i++) {
+      const yBase = H2 * (i / 7);
+      ctx2.beginPath();
+      ctx2.moveTo(0, yBase + Math.sin(t2 + i) * 28);
+      ctx2.bezierCurveTo(
+        W2/3,  yBase + Math.sin(t2 + i + 1) * 55,
+        W2*2/3,yBase + Math.sin(t2 + i + 2) * 55,
+        W2,    yBase + Math.sin(t2 + i + 3) * 28
+      );
+      ctx2.stroke();
+    }
+    requestAnimationFrame(drawLines);
+  })();
+})();
+
+/* ══════════════════════════════════════════
+   TYPING EFFECT sous-titre hero
+══════════════════════════════════════════ */
+(function() {
+  const el = document.querySelector('.hero-sous');
+  if (!el) return;
+  if (reduceMotion) { el.style.opacity = '1'; return; }
+  // récupère le texte SANS le <br> HTML (innerText donne le vrai texte avec saut)
+  const txt = el.innerText.trim();
+  // annule l'animation CSS opacity (on gère nous-mêmes)
+  el.style.animation = 'none';
+  el.style.opacity = '0';
+  el.innerHTML = '';
+  el.style.display = 'block';
+  el.style.borderRight = '2px solid var(--rose)';
+  el.style.minHeight = '3.5em';
+  let i = 0;
+  function type() {
+    if (i < txt.length) {
+      const ch = txt[i++];
+      el.innerHTML += ch === '\n' ? '<br>' : ch;
+      // fade-in progressif
+      if (i === 1) { el.style.transition = 'opacity .3s'; el.style.opacity = '1'; }
+      setTimeout(type, 22);
+    } else {
+      el.style.animation = '_blink .8s step-end infinite';
+      setTimeout(() => { el.style.borderRight = 'none'; el.style.animation = ''; }, 2800);
+    }
+  }
+  setTimeout(type, 2000);
+})();
+
+/* ══════════════════════════════════════════
+   KEYFRAMES injectés dynamiquement
+══════════════════════════════════════════ */
+const dynCSS = document.createElement('style');
+dynCSS.textContent = `
+  @keyframes _ripple { to { transform:scale(1); opacity:0; } }
+  @keyframes _blink  { 50% { border-color:transparent; } }
+  @keyframes _glitch {
+    0%,100% { clip-path:none; transform:none; }
+    20% { clip-path:inset(10% 0 80% 0); transform:translate(-3px,0); color:#f0d080; }
+    40% { clip-path:inset(60% 0 20% 0); transform:translate(3px,0);  color:#c9a84c; }
+    60% { clip-path:none; transform:none; }
+  }
+  .carte-card { transition: transform .5s var(--ez), box-shadow .5s; }
+`;
+document.head.appendChild(dynCSS);
+
+/* ══════════════════════════════════════════
+   GLITCH sur le logo nav (une fois au load)
+══════════════════════════════════════════ */
+setTimeout(() => {
+  const logo = document.querySelector('.nav-logo');
+  if (!logo) return;
+  logo.style.animation = '_glitch .5s steps(1) 3';
+  setTimeout(() => { logo.style.animation = ''; }, 1600);
+}, 2200);
+
+/* ══════════════════════════════════════════
+   SÉPARATEURS OR entre les sections
+══════════════════════════════════════════ */
+(function() {
+  const secs = document.querySelectorAll('section[id]');
+  secs.forEach(sec => {
+    const line = document.createElement('div');
+    line.style.cssText = `
+      position:absolute;top:0;left:50%;transform:translateX(-50%) scaleX(0);
+      width:80px;height:1px;
+      background:linear-gradient(90deg,transparent,rgba(201,168,76,.6),transparent);
+      transform-origin:center;transition:transform .9s cubic-bezier(.22,1,.36,1);
+      pointer-events:none;z-index:10;
+    `;
+    if (getComputedStyle(sec).position === 'static') sec.style.position = 'relative';
+    sec.prepend(line);
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { line.style.transform = 'translateX(-50%) scaleX(1)'; obs.disconnect(); }
+    }, {threshold: .1});
+    obs.observe(sec);
+  });
+})();
+
+/* ══════════════════════════════════════════
+   FLASH OR sur les titres au scroll (halo)
+══════════════════════════════════════════ */
+const haloObs = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (!e.isIntersecting) return;
+    haloObs.unobserve(e.target);
+    e.target.style.textShadow = '0 0 40px rgba(201,168,76,.55)';
+    setTimeout(() => { e.target.style.transition = 'text-shadow 1.2s ease'; e.target.style.textShadow = ''; }, 80);
+  });
+}, {threshold: .8});
+document.querySelectorAll('.titre-section').forEach(el => haloObs.observe(el));
+
+/* ══════════════════════════════════════════
+   HOVER TILT sur les images galerie
+══════════════════════════════════════════ */
+document.querySelectorAll('.gi').forEach(el => {
+  el.addEventListener('mousemove', e => {
+    if (reduceMotion) return;
+    const r = el.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width  - .5;
+    const y = (e.clientY - r.top)  / r.height - .5;
+    el.querySelector('img').style.transform = `scale(1.06) translate(${x*8}px,${y*8}px)`;
+  });
+  el.addEventListener('mouseleave', () => {
+    el.querySelector('img').style.transform = '';
+  });
+});
+
+/* ══════════════════════════════════════════
+   NAV : indicateur de progression doré
+══════════════════════════════════════════ */
+(function() {
+  const bar = document.createElement('div');
+  bar.style.cssText = `
+    position:fixed;top:0;left:0;height:2px;z-index:10000;
+    background:linear-gradient(90deg,var(--rose),var(--rose2));
+    width:0%;transition:width .1s linear;pointer-events:none;
+  `;
+  document.body.appendChild(bar);
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.body.scrollHeight - innerHeight) * 100;
+    bar.style.width = pct + '%';
+  }, {passive:true});
+})();
+
+/* Formulaire de demande : prépare un SMS, sans transmettre de données à un tiers. */
+const contactForm = document.getElementById('contact-form');
+const dateField = document.getElementById('contact-date');
+dateField.min = new Date().toISOString().slice(0, 10);
+contactForm.addEventListener('submit', e => {
+  e.preventDefault();
+  if (!contactForm.reportValidity()) return;
+  const data = new FormData(contactForm);
+  const date = new Date(`${data.get('date')}T12:00:00`).toLocaleDateString('fr-FR', {day:'numeric', month:'long', year:'numeric'});
+  const body = [
+    'Bonjour Le Bosphore Lounge,',
+    `Je souhaite réserver au nom de ${data.get('name')}, le ${date}, pour ${data.get('guests')} personne(s).`,
+    data.get('message') ? `Précisions : ${data.get('message')}` : '',
+    'Pouvez-vous me confirmer la disponibilité ?'
+  ].filter(Boolean).join('\n');
+  document.getElementById('form-status').textContent = 'Ouverture de votre application SMS… Envoyez le message pour transmettre votre demande.';
+  window.location.href = `sms:+33753006401?body=${encodeURIComponent(body)}`;
+});
+
+document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
