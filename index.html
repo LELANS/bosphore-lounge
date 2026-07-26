@@ -731,6 +731,11 @@ footer {
   .carte-grid { grid-template-columns: 1fr }
   .gi2,.gi3,.gi4 { grid-column: span 12 }
   #hero .hero-eyebrow, #hero .hero-sous { display: none !important }
+  #hero .hero-bg img { animation: mobileHeroZoom 1.6s cubic-bezier(.22,1,.36,1) both; transform-origin:center }
+  #hero::before { content:''; position:absolute; inset:0; z-index:2; pointer-events:none; background:linear-gradient(105deg,transparent 38%,rgba(240,208,128,.16) 49%,transparent 60%); transform:translateX(-120%); animation:mobileGoldSweep 1.15s .2s cubic-bezier(.4,0,.2,1) both }
+  #hero .hero-ctas { opacity:0; animation:mobileActionsIn .8s .55s cubic-bezier(.22,1,.36,1) forwards }
+  #hero .hero-ctas a:first-child { animation:mobileButtonPulse .65s 1.35s ease-out both }
+  #hero .hero-right { opacity:0; animation:mobileStatsIn .75s .9s cubic-bezier(.22,1,.36,1) forwards }
   .resa-form { padding: 1.8rem 1.2rem }
   .form-grid { grid-template-columns:1fr; gap:0 }
   .form-grid .form-group { margin-bottom:1.2rem }
@@ -742,6 +747,11 @@ footer {
   .menu-item-head { gap:.45rem }
   .menu-item-name { font-size:.88rem }
 }
+@keyframes mobileHeroZoom { from{transform:scale(1.18);filter:brightness(.6) saturate(.75)} to{transform:scale(1.04);filter:brightness(1) saturate(1)} }
+@keyframes mobileGoldSweep { to{transform:translateX(120%)} }
+@keyframes mobileActionsIn { from{opacity:0;transform:translateY(45px)} to{opacity:1;transform:translateY(0)} }
+@keyframes mobileStatsIn { from{opacity:0;transform:translateY(25px)} to{opacity:1;transform:translateY(0)} }
+@keyframes mobileButtonPulse { 0%{box-shadow:0 0 0 0 rgba(201,168,76,.5)} 100%{box-shadow:0 0 0 16px rgba(201,168,76,0)} }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior:auto }
   *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important }
