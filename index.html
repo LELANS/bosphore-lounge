@@ -1710,9 +1710,20 @@ const dateField = document.getElementById('contact-date');
 const formStatus = document.getElementById('form-status');
 const formSubmit = contactForm.querySelector('.form-submit');
 const reservationEndpoint = 'https://script.google.com/macros/s/AKfycbyHI46LcUUHU1Kfn6T5_2VF0NLaZHZTw_NWLjKm3QmWwkmqQXTFyj4Ou1daFo4hRwAt/exec';
-dateField.min = new Date().toISOString().slice(0, 10);
+function localToday() {
+  const now = new Date();
+  return `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+}
+function validateReservationDate() {
+  const today = localToday();
+  dateField.min = today;
+  dateField.setCustomValidity(dateField.value && dateField.value < today ? 'Choisissez une date à partir d’aujourd’hui.' : '');
+}
+validateReservationDate();
+dateField.addEventListener('change', validateReservationDate);
 contactForm.addEventListener('submit', async e => {
   e.preventDefault();
+  validateReservationDate();
   if (!contactForm.reportValidity()) return;
   const data = new FormData(contactForm);
   data.set('source', 'Site Le Bosphore Lounge');
@@ -1722,7 +1733,7 @@ contactForm.addEventListener('submit', async e => {
   try {
     await fetch(reservationEndpoint, { method:'POST', body:data, mode:'no-cors' });
     contactForm.reset();
-    dateField.min = new Date().toISOString().slice(0, 10);
+    validateReservationDate();
     formStatus.textContent = 'Votre demande a bien été enregistrée. Le Bosphore Lounge vous répondra par email dans les 24 heures.';
     formStatus.style.color = 'var(--rose2)';
   } catch (error) {
