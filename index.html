@@ -551,6 +551,7 @@ body.open #ov { opacity: 1; visibility: visible }
   box-shadow: 0 4px 24px -4px rgba(201,168,76,.5);
 }
 .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 32px -4px rgba(201,168,76,.65) }
+.form-submit:disabled { cursor:wait; opacity:.65; transform:none; box-shadow:none }
 
 /* ════════════════ HORAIRES ════════════════ */
 #horaires {
@@ -1094,7 +1095,7 @@ footer {
           <label for="contact-consent">J’accepte que mes informations soient utilisées uniquement pour traiter ma demande de réservation.</label>
         </div>
         <button class="form-submit" type="submit">Confirmer la demande</button>
-        <p id="form-status" role="status" aria-live="polite" style="margin-top:1rem;color:var(--gris);font-size:.78rem;line-height:1.6;text-align:center">La demande sera préparée par SMS. La réservation reste à confirmer par l’établissement.</p>
+        <p id="form-status" role="status" aria-live="polite" style="margin-top:1rem;color:var(--gris);font-size:.78rem;line-height:1.6;text-align:center">Demande de réservation — réponse par email dans les 24 heures.</p>
       </form>
     </div>
   </div>
@@ -1700,27 +1701,34 @@ document.querySelectorAll('.gi').forEach(el => {
   }, {passive:true});
 })();
 
-/* Formulaire de demande : prépare un SMS, sans transmettre de données à un tiers. */
+/* Formulaire de réservation connecté à Google Apps Script / Google Sheets. */
 const contactForm = document.getElementById('contact-form');
 const dateField = document.getElementById('contact-date');
+const formStatus = document.getElementById('form-status');
+const formSubmit = contactForm.querySelector('.form-submit');
+const reservationEndpoint = 'https://script.google.com/macros/s/AKfycbyHI46LcUUHU1Kfn6T5_2VF0NLaZHZTw_NWLjKm3QmWwkmqQXTFyj4Ou1daFo4hRwAt/exec';
 dateField.min = new Date().toISOString().slice(0, 10);
-contactForm.addEventListener('submit', e => {
+contactForm.addEventListener('submit', async e => {
   e.preventDefault();
   if (!contactForm.reportValidity()) return;
   const data = new FormData(contactForm);
-  const date = new Date(`${data.get('date')}T12:00:00`).toLocaleDateString('fr-FR', {day:'numeric', month:'long', year:'numeric'});
-  const body = [
-    'Bonjour Le Bosphore Lounge,',
-    `Je souhaite réserver au nom de ${data.get('name')}.`,
-    `Date : ${date} à ${data.get('time')}.`,
-    `Nombre de personnes : ${data.get('guests')}.`,
-    `Téléphone : ${data.get('phone')}.`,
-    `Email : ${data.get('email')}.`,
-    data.get('message') ? `Précisions : ${data.get('message')}` : '',
-    'Pouvez-vous me confirmer la disponibilité ?'
-  ].filter(Boolean).join('\n');
-  document.getElementById('form-status').textContent = 'Ouverture de votre application SMS… Envoyez le message pour transmettre votre demande.';
-  window.location.href = `sms:+33753006401?body=${encodeURIComponent(body)}`;
+  data.set('source', 'Site Le Bosphore Lounge');
+  formSubmit.disabled = true;
+  formSubmit.textContent = 'Envoi en cours…';
+  formStatus.textContent = 'Transmission sécurisée de votre demande…';
+  try {
+    await fetch(reservationEndpoint, { method:'POST', body:data, mode:'no-cors' });
+    contactForm.reset();
+    dateField.min = new Date().toISOString().slice(0, 10);
+    formStatus.textContent = 'Votre demande a bien été enregistrée. Le Bosphore Lounge vous répondra par email dans les 24 heures.';
+    formStatus.style.color = 'var(--rose2)';
+  } catch (error) {
+    formStatus.innerHTML = 'La demande n’a pas pu être transmise. Vérifiez votre connexion ou appelez-nous au <a href="tel:+33753006401" style="color:var(--rose2);text-decoration:underline">07 53 00 64 01</a>.';
+    formStatus.style.color = '#ffb4a8';
+  } finally {
+    formSubmit.disabled = false;
+    formSubmit.textContent = 'Confirmer la demande';
+  }
 });
 
 document.getElementById('current-year').textContent = new Date().getFullYear();
