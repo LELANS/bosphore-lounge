@@ -488,13 +488,17 @@ body.open #ov { opacity: 1; visibility: visible }
   letter-spacing: .06em; margin-bottom: 1.8rem; text-align: center;
   color: var(--blanc);
 }
+.form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.25rem 1.5rem }
 .form-group { margin-bottom: 1.2rem }
+.form-grid .form-group { margin-bottom:0 }
+.form-group.form-wide { grid-column:1 / -1 }
 .form-group label {
   display: block; font-size: .7rem; letter-spacing: .14em;
   text-transform: uppercase; color: var(--gris); margin-bottom: .5rem;
 }
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
   width: 100%;
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.1);
@@ -504,13 +508,19 @@ body.open #ov { opacity: 1; visibility: visible }
   transition: border-color .25s;
   resize: none;
 }
+.form-group select { appearance:none; cursor:pointer; color-scheme:dark; background-image:linear-gradient(45deg,transparent 50%,var(--rose) 50%),linear-gradient(135deg,var(--rose) 50%,transparent 50%); background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%; background-size:5px 5px,5px 5px; background-repeat:no-repeat; padding-right:2.5rem }
+.form-group select option { background:var(--noir2); color:var(--blanc) }
 .form-group input:focus,
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-group select:focus {
   outline: none; border-color: var(--rose);
 }
 .form-group input::placeholder,
 .form-group textarea::placeholder { color: rgba(255,255,255,.25) }
 .form-group textarea { height: 120px }
+.form-consent { display:flex; align-items:flex-start; gap:.75rem; margin:1.4rem 0; color:var(--gris); font-size:.72rem; line-height:1.55 }
+.form-consent input { width:1.1rem; height:1.1rem; margin-top:.1rem; flex:0 0 auto; accent-color:var(--rose) }
+.form-consent label { cursor:pointer }
 .form-submit {
   width: 100%; margin-top: .5rem;
   background: linear-gradient(90deg, var(--rose), var(--rose2));
@@ -699,6 +709,9 @@ footer {
   .gi2,.gi3,.gi4,.gi5 { grid-column: span 12 }
   .hero-sous { font-size: .9rem }
   .resa-form { padding: 1.8rem 1.2rem }
+  .form-grid { grid-template-columns:1fr; gap:0 }
+  .form-grid .form-group { margin-bottom:1.2rem }
+  .form-group.form-wide { grid-column:auto }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior:auto }
@@ -951,24 +964,58 @@ footer {
     <div class="resa-form rv d2">
       <h3>Réserver une table</h3>
       <form id="contact-form">
-        <div class="form-group">
-          <label for="contact-name">Nom &amp; Prénom</label>
-          <input id="contact-name" name="name" type="text" placeholder="Votre nom" autocomplete="name" required>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="contact-name">Nom complet</label>
+            <input id="contact-name" name="name" type="text" placeholder="Votre nom" autocomplete="name" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-phone">Téléphone</label>
+            <input id="contact-phone" name="phone" type="tel" placeholder="06 00 00 00 00" autocomplete="tel" inputmode="tel" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-date">Date</label>
+            <input id="contact-date" name="date" type="date" required>
+          </div>
+          <div class="form-group">
+            <label for="contact-time">Heure</label>
+            <select id="contact-time" name="time" required>
+              <option value="" selected disabled>Choisir</option>
+              <option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option>
+              <option>16:00</option><option>16:30</option><option>17:00</option><option>17:30</option>
+              <option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option>
+              <option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option>
+              <option>22:00</option><option>22:30</option><option>23:00</option><option>23:30</option>
+              <option>00:00</option><option>00:30</option><option>01:00</option><option>01:30</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-guests">Nombre de personnes</label>
+            <select id="contact-guests" name="guests" required>
+              <option value="" selected disabled>Choisir</option>
+              <option value="1">1 personne</option><option value="2">2 personnes</option>
+              <option value="3">3 personnes</option><option value="4">4 personnes</option>
+              <option value="5">5 personnes</option><option value="6">6 personnes</option>
+              <option value="7">7 personnes</option><option value="8">8 personnes</option>
+              <option value="9">9 personnes</option><option value="10">10 personnes</option>
+              <option value="12+">Plus de 10 personnes</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Email</label>
+            <input id="contact-email" name="email" type="email" placeholder="vous@email.com" autocomplete="email" required>
+          </div>
+          <div class="form-group form-wide">
+            <label for="contact-message">Message <span>(optionnel)</span></label>
+            <textarea id="contact-message" name="message" placeholder="Occasion spéciale, demande particulière…"></textarea>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="contact-date">Date souhaitée</label>
-          <input id="contact-date" name="date" type="date" required>
+        <div class="form-consent">
+          <input id="contact-consent" name="consent" type="checkbox" required>
+          <label for="contact-consent">J’accepte que mes informations soient utilisées uniquement pour traiter ma demande de réservation.</label>
         </div>
-        <div class="form-group">
-          <label for="contact-guests">Nombre de personnes</label>
-          <input id="contact-guests" name="guests" type="number" min="1" max="30" inputmode="numeric" placeholder="Ex. 4" required>
-        </div>
-        <div class="form-group">
-          <label for="contact-message">Message <span>(facultatif)</span></label>
-          <textarea id="contact-message" name="message" placeholder="Heure souhaitée, occasion, demande particulière…"></textarea>
-        </div>
-        <button class="form-submit" type="submit">Préparer la demande par SMS</button>
-        <p id="form-status" role="status" aria-live="polite" style="margin-top:1rem;color:var(--gris);font-size:.78rem;line-height:1.6">Votre application SMS s’ouvrira avec la demande préremplie. La réservation reste à confirmer par l’établissement.</p>
+        <button class="form-submit" type="submit">Confirmer la demande</button>
+        <p id="form-status" role="status" aria-live="polite" style="margin-top:1rem;color:var(--gris);font-size:.78rem;line-height:1.6;text-align:center">La demande sera préparée par SMS. La réservation reste à confirmer par l’établissement.</p>
       </form>
     </div>
   </div>
@@ -1579,7 +1626,11 @@ contactForm.addEventListener('submit', e => {
   const date = new Date(`${data.get('date')}T12:00:00`).toLocaleDateString('fr-FR', {day:'numeric', month:'long', year:'numeric'});
   const body = [
     'Bonjour Le Bosphore Lounge,',
-    `Je souhaite réserver au nom de ${data.get('name')}, le ${date}, pour ${data.get('guests')} personne(s).`,
+    `Je souhaite réserver au nom de ${data.get('name')}.`,
+    `Date : ${date} à ${data.get('time')}.`,
+    `Nombre de personnes : ${data.get('guests')}.`,
+    `Téléphone : ${data.get('phone')}.`,
+    `Email : ${data.get('email')}.`,
     data.get('message') ? `Précisions : ${data.get('message')}` : '',
     'Pouvez-vous me confirmer la disponibilité ?'
   ].filter(Boolean).join('\n');
