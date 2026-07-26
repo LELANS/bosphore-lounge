@@ -741,8 +741,10 @@ footer {
   .form-grid .form-group { margin-bottom:1.2rem }
   .form-group.form-wide { grid-column:auto }
   #contact-form .form-grid, #contact-form .form-group { min-width:0; width:100% }
-  #contact-date { display:block; width:100%; min-width:0; max-width:100%; box-sizing:border-box }
-  #contact-date::-webkit-date-and-time-value { text-align:left; min-width:0 }
+  #contact-date { display:block; inline-size:100% !important; min-inline-size:0 !important; max-inline-size:100% !important; width:100% !important; min-width:0 !important; max-width:100% !important; box-sizing:border-box; -webkit-appearance:none; appearance:none; overflow:hidden; font-size:16px }
+  #contact-date::-webkit-date-and-time-value { display:block; inline-size:100%; min-inline-size:0; padding:0; text-align:left }
+  #contact-date::-webkit-calendar-picker-indicator { flex:0 0 auto; margin:0; padding:.2rem }
+  #contact-date:focus { -webkit-appearance:none; appearance:none }
   .menu-showcase { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; margin-left:-2rem; margin-right:-2rem; padding:0 2rem 1rem; scrollbar-width:none }
   .menu-showcase::-webkit-scrollbar { display:none }
   .menu-feature { flex:0 0 78vw; min-height:390px; scroll-snap-align:center }
